@@ -1,0 +1,84 @@
+.app-audience-card {
+
+  display: grid;
+  justify-items: center;
+  padding: 18px 23px;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+
+  &:hover {
+  }
+
+  &__top-indicator {
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    top: 0;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+  }
+
+  &__company {
+
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    margin-bottom: 15px;
+
+    &__img {
+      width: 20px;
+      height: 20px;
+      margin: 5px;
+    }
+
+    &__nick {
+      font-size: 0.8rem;
+      margin: 5px;
+      font-weight: bold;
+    }
+  }
+
+  &__audience {
+
+    display: grid;
+    justify-items: center;
+    margin-bottom: 30px;
+
+    &__number {
+      font-size: 4rem;
+      font-weight: bold;
+    }
+
+    &__type {
+      letter-spacing: 0.25rem;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+  }
+
+  &__statistic-indicator {
+
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    align-items: center;
+
+    &--up {
+    }
+
+    &--down {
+    }
+
+    &__img {
+    }
+
+    &__number {
+    }
+
+    &__date {
+    }
+  }
+}
