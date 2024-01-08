@@ -1,29 +1,33 @@
-import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [AppComponent],
+import {AppComponent} from './app.component';
+import {ThemeSelectorService} from 'theme-selector';
+
+describe('AppComponent ', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        AppComponent
+      ],
+      providers: [
+        {
+          provide: ThemeSelectorService,
+          useValue: jasmine.createSpyObj('ThemeSelectorService', ['select'])
+        }
+      ]
     }).compileComponents();
   });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have the 'social-media-dashboard-with-theme-switcher-master' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('social-media-dashboard-with-theme-switcher-master');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, social-media-dashboard-with-theme-switcher-master');
+  });
+
+  it('should be created', () => {
+    expect(component).toBeTruthy();
   });
 });

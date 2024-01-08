@@ -1,0 +1,15 @@
+<div class="app-statistic-event-card__event" aria-label="Statistic Event">
+  <div class="app-statistic-event-card__event__name">{{ event }}</div>
+  <img class="app-statistic-event-card__event__img" [src]="companyIcon" [alt]="altCompanyIcon"/>
+</div>
+
+<div class="app-statistic-event-card__event-count" aria-label="Statistic Value">
+  <div class="app-statistic-event-card__event-count__value">{{ eventCount | shortNumber }}</div>
+  <div class="app-statistic-event-card__event-count__rate" [ngClass]="(eventCountRate >= 0) ? 'app-statistic-event-card__event-count__rate--up' : 'app-statistic-event-card__event-count__rate--down'">
+    <img
+      class="app-statistic-card__event-count__rate__indicator"
+      [src]="eventCountRate >= 0 ? '/assets/images/icon-up.svg' : '/assets/images/icon-down.svg'"
+      [alt]="eventCountRate >= 0 ? 'Icon Up' : 'Icon Down'"/>
+    <div class="app-statistic-card__event-count__rate__value">{{ eventCountRate | shortNumber }}%</div>
+  </div>
+</div>

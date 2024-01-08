@@ -1,1 +1,81 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap');
+@import 'app/features/components/audience-card/mixins';
+@import 'app/features/components/statistic-event-card/mixins';
+@import 'app/features/components/switch/mixins';
+@import 'app/mixins';
+
+* {
+  box-sizing: border-box;
+  transition: 0.2s;
+}
+
+body {
+  font-family: 'Inter', 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: 0s;
+}
+
+@mixin hr($theme) {
+  hr {
+    background-color: map-get($theme, 'color-secondary');
+  }
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  border: none;
+  margin: 16px 0;
+}
+
+$light-theme: (
+  name: 'light',
+  body-background-color: hsl(0, 0%, 100%),
+  body-background-color-secondary: hsl(225, 100%, 98%),
+  content-background-color: hsl(227, 47%, 96%),
+  content-background-color-hover: darken(hsl(227, 47%, 96%), 5%),
+  color: hsl(230, 17%, 14%),
+  color-secondary: hsl(228, 12%, 44%),
+  color-accept: hsl(163, 72%, 41%),
+  color-error: hsl(356, 69%, 56%),
+  switch-background: linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%)),
+  switch-handler-color: hsl(0, 0%, 100%)
+);
+
+$dark-theme: (
+  name: 'dark',
+  body-background-color: hsl(230, 17%, 14%),
+  body-background-color-secondary: hsl(232, 19%, 15%),
+  content-background-color: hsl(228, 28%, 20%),
+  content-background-color-hover: lighten(hsl(228, 28%, 20%), 5%),
+  color: hsl(0, 0%, 100%),
+  color-secondary: hsl(228, 34%, 66%),
+  color-accept: hsl(163, 72%, 41%),
+  color-error: hsl(356, 69%, 56%),
+  switch-background: linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%)),
+  switch-handler-color: lighten(hsl(228, 28%, 20%), 5%)
+);
+
+@mixin container($theme) {
+  background-color: map-get($theme, 'body-background-color');
+  color: map-get($theme, 'color');
+}
+
+.light {
+  @include container($light-theme);
+  @include app-root($light-theme);
+  @include app-audience-card($light-theme);
+  @include app-statistic-event-card($light-theme);
+  @include app-switch($light-theme);
+  @include hr($light-theme);
+}
+
+.dark {
+  @include container($dark-theme);
+  @include app-root($dark-theme);
+  @include app-audience-card($dark-theme);
+  @include app-statistic-event-card($dark-theme);
+  @include app-switch($dark-theme);
+  @include hr($dark-theme);
+}

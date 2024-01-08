@@ -1,0 +1,40 @@
+@mixin app-audience-card($theme) {
+
+  .app-audience-card {
+
+    background-color: map-get($theme, 'content-background-color');
+
+    &:hover {
+      background-color: map-get($theme, 'content-background-color-hover');
+    }
+
+    &__company {
+
+      &__nick {
+        color: map-get($theme, 'color-secondary');
+      }
+    }
+
+    &__audience {
+
+      &__number {
+        color: map-get($theme, 'color');
+      }
+
+      &__type {
+        color: map-get($theme, 'color-secondary');
+      }
+    }
+
+    &__statistic-indicator {
+
+      &--up {
+        color: map-get($theme, 'color-accept');
+      }
+
+      &--down {
+        color: map-get($theme, 'color-error');
+      }
+    }
+  }
+}

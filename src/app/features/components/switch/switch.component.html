@@ -1,0 +1,9 @@
+<input
+  type="checkbox"
+  (change)="onChanged($event)"
+  (blur)="regOnTouched()"
+  [checked]="checked"
+  [disabled]="isDisabled"
+  [id]="id"
+/>
+<label [for]="id"></label>

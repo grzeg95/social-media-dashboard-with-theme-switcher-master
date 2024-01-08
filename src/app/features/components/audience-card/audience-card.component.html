@@ -1,0 +1,20 @@
+<div class="app-audience-card__top-indicator" [style.background]="indicatorTopBorderColor"></div>
+
+<div class="app-audience-card__company" [attr.aria-label]="'{{ typeOfCompany }} Company'">
+  <img class="app-audience-card__company__img" [src]="companyIcon" [alt]="altCompanyIcon"/>
+  <div class="app-audience-card__company__nick" aria-label="Nick">{{ nick }}</div>
+</div>
+
+<div class="app-audience-card__audience" [attr.aria-label]="'{{ typeOfCompany }} Number Of {{ numberOfAudienceType }}'">
+  <div class="app-audience-card__audience__number">{{ numberOfAudience | shortNumber }}</div>
+  <div class="app-audience-card__audience__type">{{ numberOfAudienceType }}</div>
+</div>
+
+<div class="app-audience-card__statistic-indicator" [ngClass]="(numberOfAudienceOnDate >= 0) ? 'app-audience-card__statistic-indicator--up' : 'app-audience-card__statistic-indicator--down'" [attr.aria-label]="'Social Statistic Of {{ numberOfAudienceType }} {{ audienceDate }}'">
+  <img
+    class="app-audience-card__statistic-indicator__img"
+    [src]="numberOfAudienceOnDate >= 0 ? '/assets/images/icon-up.svg' : '/assets/images/icon-down.svg'"
+    [alt]="numberOfAudienceOnDate >= 0 ? 'Icon Up' : 'Icon Down'"/>
+  <div class="app-audience-card__statistic-indicator__number">{{ numberOfAudienceOnDate | shortNumber }}</div>
+  <div class="app-audience-card__statistic__indicator__date">{{ audienceDate }}</div>
+</div>
