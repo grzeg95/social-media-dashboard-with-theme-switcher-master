@@ -1,0 +1,36 @@
+@mixin app-statistic-event-card($theme) {
+
+  .app-statistic-event-card {
+
+    background-color: map-get($theme, 'content-background-color');
+
+    &:hover {
+      background-color: map-get($theme, 'content-background-color-hover');
+    }
+
+    &__event {
+
+      &__name {
+        color: map-get($theme, 'color-secondary');
+      }
+    }
+
+    &__event-count {
+
+      &__value {
+        color: map-get($theme, 'color');
+      }
+
+      &__rate {
+
+        &--up {
+          color: map-get($theme, 'color-accept');
+        }
+
+        &--down {
+          color: map-get($theme, 'color-error');
+        }
+      }
+    }
+  }
+}

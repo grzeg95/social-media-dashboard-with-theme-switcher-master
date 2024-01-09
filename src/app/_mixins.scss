@@ -1,0 +1,39 @@
+@mixin app-root($theme) {
+
+  .app-root {
+
+    &__top-background {
+      background: map-get($theme, 'body-background-color-secondary');
+    }
+
+    &__nav {
+
+      &__main {
+
+        &__title {
+          color: map-get($theme, 'color');
+        }
+
+        &__sub-title {
+          color: map-get($theme, 'color-secondary');
+        }
+      }
+
+      &__switch {
+
+        &__option {
+          color: map-get($theme, 'color');
+        }
+      }
+    }
+
+    &__section {
+
+      margin-bottom: 24px;
+
+      &__title {
+        color: map-get($theme, 'color');
+      }
+    }
+  }
+}
