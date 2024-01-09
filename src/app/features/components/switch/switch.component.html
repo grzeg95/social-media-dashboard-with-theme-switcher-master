@@ -1,7 +1,8 @@
 <input
   type="checkbox"
-  (change)="onChanged($event)"
-  (blur)="regOnTouched()"
+  (change)="_onChange($event)"
+  (blur)="_onTouched()"
+  (click)="_onClick($event)"
   [checked]="checked"
   [disabled]="isDisabled"
   [id]="id"

@@ -28,18 +28,18 @@ export class SwitchComponent implements ControlValueAccessor {
   checked!: boolean;
   isDisabled!: boolean;
 
-  public regOnChange = (_: any) => {
+  public onChange = (_: any) => {
   };
 
-  public regOnTouched = () => {
+  public onTouched = () => {
   };
 
   registerOnChange(fn: any): void {
-    this.regOnChange = fn;
+    this.onChange = fn;
   }
 
   registerOnTouched(fn: any): void {
-    this.regOnTouched = fn;
+    this.onTouched = fn;
   }
 
   setDisabledState?(isDisabled: boolean): void {
@@ -50,15 +50,16 @@ export class SwitchComponent implements ControlValueAccessor {
     this.checked = obj;
   }
 
-  onChanged($event: Event | boolean) {
+  _onChange($event: Event) {
+    $event.stopPropagation();
+    this.onChange(($event.target as HTMLInputElement).checked);
+  }
 
-    if (typeof $event === 'boolean') {
-      this.regOnChange($event);
-      this.writeValue($event);
-      return;
-    }
+  _onClick($event: MouseEvent) {
+    $event.stopPropagation();
+  }
 
-    this.regOnChange(($event.target as HTMLInputElement).checked);
-    this.writeValue(($event.target as HTMLInputElement).checked);
+  _onTouched() {
+    this.onTouched();
   }
 }
