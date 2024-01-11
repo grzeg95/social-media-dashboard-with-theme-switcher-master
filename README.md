@@ -36,11 +36,12 @@ Users should be able to:
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
-- CSS Grid
-- Mobile-first workflow
+- Firebase hosting:github
 - [Angular 17](https://angular.dev/)
+- Angular unit tests
+- SASS Theme
+- CSS Grid, BEM
+- Mobile-first workflow
 
 ### What I learned
 
